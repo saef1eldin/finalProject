@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="601.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientLoginController">
+   <children>
+      <AnchorPane layoutX="225.0" layoutY="1.0" prefHeight="394.0" prefWidth="375.0">
+         <children>
+            <Label layoutX="152.0" layoutY="25.0" text="LOGIN">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="95.0" text="username" textFill="#383560">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="154.0" text="password" textFill="#383560">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="152.0" layoutY="93.0" styleClass="textField" stylesheets="@../css/admin.css" />
+            <TextField fx:id="password" layoutX="152.0" layoutY="152.0" styleClass="textField" stylesheets="@../css/admin.css" />
+            <Button layoutX="31.0" layoutY="244.0" mnemonicParsing="false" onAction="#loginBtn" prefHeight="42.0" prefWidth="118.0" styleClass="saveButton" stylesheets="@../css/admin.css" text="login">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="208.0" layoutY="244.0" mnemonicParsing="false" onAction="#registerBtn" prefHeight="42.0" prefWidth="118.0" styleClass="createBtn" stylesheets="@../css/admin.css" text="register">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AmbientLight color="CHARTREUSE" layoutX="125.0" layoutY="170.0" lightOn="true" />
+      <ImageView fitHeight="401.0" fitWidth="236.0" layoutX="6.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/images%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppointmentController">
+   <children>
+      <TableView fx:id="tView" layoutX="32.0" layoutY="23.0" prefHeight="342.0" prefWidth="458.0">
+        <columns>
+          <TableColumn fx:id="tid" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tadata" prefWidth="95.20001220703125" text="Appoi_data" />
+            <TableColumn fx:id="tday" prefWidth="117.59996032714844" text="Appoi_day" />
+            <TableColumn fx:id="ttime" prefWidth="95.20001220703125" text="Appoi_time" />
+            <TableColumn fx:id="tstatus" prefWidth="75.20001220703125" text="Status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

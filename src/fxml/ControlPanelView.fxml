@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControlPanelViewController">
+   <children>
+      <AnchorPane prefHeight="348.0" prefWidth="584.0">
+         <children>
+            <ImageView fitHeight="344.0" fitWidth="618.0" layoutX="-1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/login.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="286.0" layoutY="28.0" text="Control Panel">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="231.0" layoutY="155.0" mnemonicParsing="false" onAction="#LoginAsAdmin" prefHeight="42.0" prefWidth="133.0" styleClass="saveButton" stylesheets="@../css/admin.css" text="Login As Admin">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="400.0" layoutY="155.0" mnemonicParsing="false" onAction="#LoginAsPatient" prefHeight="42.0" prefWidth="134.0" styleClass="createBtn" stylesheets="@../css/admin.css" text="Login As Patient">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
