@@ -18,7 +18,6 @@ public class AdminDashboardView extends Stage {
     }
 
     public void close() {
-        // Perform the necessary actions to close the admin dashboard view
         super.close();
     }
 }

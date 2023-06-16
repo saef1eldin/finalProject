@@ -49,6 +49,7 @@ public class AdminLoginController {
 
                 if (count > 0) {
                     ViewManager.openAdminDashboardView();
+                    ViewManager.closeAdminLoginView();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Invalid Credentials");

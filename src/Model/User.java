@@ -19,7 +19,7 @@ public class User {
     private String gender;
     private String role;
 
-    public User(String username, String password, String firstName, String lastName, int age, String email, String phone, String gender, String role) {
+    public User(int age, String username, String password, String firstName, String lastName, int age1, String email, String phone, String gender, String role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -138,12 +138,12 @@ public class User {
         return recordCounter;
     }
 
-    public static ArrayList<User> getAllUsers() throws SQLException, ClassNotFoundException {
+    public static ArrayList<User> getAllPatients() throws SQLException, ClassNotFoundException {
         Connection c = DB.getInstance().getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ArrayList<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM users";
+        ArrayList<User> patients = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE role = 'patient'";
         ps = c.prepareStatement(sql);
         rs = ps.executeQuery();
         while (rs.next()) {
@@ -157,15 +157,15 @@ public class User {
             String phone = rs.getString("phone");
             String gender = rs.getString("gender");
             String role = rs.getString("role");
-            User user = new User(username, password, firstname, lastname, age, email, phone, gender, role);
-            user.setId(id);
-            users.add(user);
+            User patient = new User(age, username, password, firstname, lastname, age, email, phone, gender, role);
+            patient.setId(id);
+            patients.add(patient);
         }
         if (ps != null) {
             ps.close();
         }
         c.close();
-        return users;
+        return patients;
     }
 
     public static ArrayList<User> searchByFirstName(String firstName) throws SQLException, ClassNotFoundException {
@@ -188,7 +188,7 @@ public class User {
             String phone = rs.getString("phone");
             String gender = rs.getString("gender");
             String role = rs.getString("role");
-            User user = new User(username, password, firstname, lastname, age, email, phone, gender, role);
+            User user = new User(age, username, password, firstname, lastname, age, email, phone, gender, role);
             user.setId(id);
             users.add(user);
         }
@@ -198,47 +198,78 @@ public class User {
         c.close();
         return users;
     }
-public boolean delete() throws SQLException, ClassNotFoundException {
-    Connection c = DB.getInstance().getConnection();
-    PreparedStatement ps = null;
-    int recordCounter = 0;
-    String sql = "DELETE FROM users WHERE id = ?";
-    ps = c.prepareStatement(sql);
-    ps.setInt(1, this.getId());
-    recordCounter = ps.executeUpdate();
-    if (recordCounter > 0) {
-        System.out.println("User with ID " + this.getId() + " was deleted successfully!");
-        return true;
-    } else {
-        System.out.println("Failed to delete user with ID " + this.getId());
-        return false;
+
+    public boolean delete() throws SQLException, ClassNotFoundException {
+        Connection c = DB.getInstance().getConnection();
+        PreparedStatement ps = null;
+        int recordCounter = 0;
+        String sql = "DELETE FROM users WHERE id = ?";
+        ps = c.prepareStatement(sql);
+        ps.setInt(1, this.getId());
+        recordCounter = ps.executeUpdate();
+        if (recordCounter > 0) {
+            System.out.println("User with ID " + this.getId() + " was deleted successfully!");
+            return true;
+        } else {
+            System.out.println("Failed to delete user with ID " + this.getId());
+            return false;
+        }
     }
-}
-public int update() throws SQLException, ClassNotFoundException {
+
+    public int update() throws SQLException, ClassNotFoundException {
+        Connection c = DB.getInstance().getConnection();
+        PreparedStatement ps = null;
+        int recordCounter = 0;
+        String sql = "UPDATE USERS SET username=?, password=?, firstname=?, lastname=?, age=?, email=?, phone=?, gender=?, role=? WHERE ID=?";
+        ps = c.prepareStatement(sql);
+        ps.setString(1, this.getUsername());
+        ps.setString(2, this.getPassword());
+        ps.setString(3, this.getFirstName());
+        ps.setString(4, this.getLastName());
+        ps.setInt(5, this.getAge());
+        ps.setString(6, this.getEmail());
+        ps.setString(7, this.getPhone());
+        ps.setString(8, this.getGender());
+        ps.setString(9, this.getRole());
+        ps.setInt(10, this.getId());
+        recordCounter = ps.executeUpdate();
+        if (recordCounter > 0) {
+            System.out.println("User with id: " + this.getId() + " was updated successfully!");
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        c.close();
+        return recordCounter;
+    }
+    public static User getUserById(int userId) throws SQLException, ClassNotFoundException {
     Connection c = DB.getInstance().getConnection();
     PreparedStatement ps = null;
-    int recordCounter = 0;
-    String sql = "UPDATE USERS SET USERNAME=?, PASSWORD=?, FIRST_NAME=?, LAST_NAME=?, AGE=?, EMAIL=?, PHONE=?, GENDER=?, ROLE=? WHERE ID=?";
+    ResultSet rs = null;
+    User user = null;
+    String sql = "SELECT * FROM users WHERE id = ?";
     ps = c.prepareStatement(sql);
-    ps.setString(1, this.getUsername());
-    ps.setString(2, this.getPassword());
-    ps.setString(3, this.getFirstName());
-    ps.setString(4, this.getLastName());
-    ps.setInt(5, this.getAge());
-    ps.setString(6, this.getEmail());
-    ps.setString(7, this.getPhone());
-    ps.setString(8, this.getGender());
-    ps.setString(9, this.getRole());
-    ps.setInt(10, this.getId());
-    recordCounter = ps.executeUpdate();
-    if (recordCounter > 0) {
-        System.out.println("User with id: " + this.getId() + " was updated successfully!");
+    ps.setInt(1, userId);
+    rs = ps.executeQuery();
+    if (rs.next()) {
+        String username = rs.getString("username");
+        String password = rs.getString("password");
+        String firstname = rs.getString("firstname");
+        String lastname = rs.getString("lastname");
+        int age = rs.getInt("age");
+        String email = rs.getString("email");
+        String phone = rs.getString("phone");
+        String gender = rs.getString("gender");
+        String role = rs.getString("role");
+        user = new User(age, username, password, firstname, lastname, age, email, phone, gender, role);
+        user.setId(userId);
     }
     if (ps != null) {
         ps.close();
     }
     c.close();
-    return recordCounter;
+    return user;
 }
+
 
 }

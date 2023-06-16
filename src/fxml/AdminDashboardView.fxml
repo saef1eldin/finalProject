@@ -27,7 +27,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="usersManagmentPageBtn" alignment="BASELINE_LEFT" layoutY="234.0" mnemonicParsing="false" onAction="#showUsersManagmentPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="Users">
+                  <Button alignment="BASELINE_LEFT" layoutY="234.0" mnemonicParsing="false" onAction="#showAppointmentsPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="Appointments">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -38,7 +38,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="accountsPageBtn" alignment="BASELINE_LEFT" layoutY="184.0" mnemonicParsing="false" onAction="#showAccountsPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItemActive" stylesheets="@../css/admin.css" text="main">
+                  <Button alignment="BASELINE_LEFT" layoutY="184.0" mnemonicParsing="false" onAction="#showMainPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItemActive" stylesheets="@../css/admin.css" text="main">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -49,7 +49,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="operationsPageBtn" alignment="BASELINE_LEFT" layoutY="284.0" mnemonicParsing="false" onAction="#showOperationsPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="Operations">
+                  <Button fx:id="operationsPageBtn" alignment="BASELINE_LEFT" layoutX="-16.0" layoutY="284.0" mnemonicParsing="false" onAction="#showAppointmentsBookedPage" prefHeight="50.0" prefWidth="223.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="Appointments-Booked">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -59,6 +59,14 @@
                      <padding>
                         <Insets left="20.0" />
                      </padding>
+                  </Button>
+                  <Button layoutX="22.0" layoutY="452.0" mnemonicParsing="false" onAction="#loginOut" prefHeight="42.0" prefWidth="146.0" styleClass="deleteBtn" stylesheets="@../css/admin.css" text="login out">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
                   </Button>
                </children>
                <effect>
@@ -75,7 +83,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="FreeAppointmentsBtn" layoutX="299.0" layoutY="23.0" mnemonicParsing="false" onAction="#showFreeAppointments" prefHeight="42.0" prefWidth="156.0" styleClass="showAllBtn" stylesheets="@../css/admin.css" text="Free Appointments">
+                  <Button fx:id="CreatePatientBtn" layoutX="388.0" layoutY="23.0" mnemonicParsing="false" onAction="#CreatePatient2" prefHeight="42.0" prefWidth="156.0" styleClass="showAllBtn" stylesheets="@../css/admin.css" text="Create Patient ">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -124,15 +132,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <TextField fx:id="accontSearchTF" layoutX="24.0" layoutY="105.0" prefHeight="36.0" prefWidth="187.0" promptText="Account number" styleClass="textField" stylesheets="@../css/admin.css" />
-                  <Button fx:id="BookedAppointmentsBtn1" layoutX="544.0" layoutY="23.0" mnemonicParsing="false" onAction="#showBookedAppointments" prefHeight="42.0" prefWidth="187.0" styleClass="showButton" stylesheets="@../css/admin.css" text="Booked Appointments">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
+                  <TextField fx:id="accontSearchTF" layoutX="24.0" layoutY="105.0" prefHeight="36.0" prefWidth="187.0" promptText="first name" styleClass="textField" stylesheets="@../css/admin.css" />
                </children>
             </AnchorPane>
             <Label layoutX="233.0" layoutY="13.0" prefHeight="42.0" prefWidth="194.0" text="Admin Dashboard" textFill="#838383">

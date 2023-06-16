@@ -34,15 +34,18 @@ public class PatientRegisterController {
     @FXML
     private ToggleGroup genderGroup;
     @FXML
-    private ToggleGroup roleGroup;
-    @FXML
-    private TextField fNameTF;
-    @FXML
     private TextField lastNameTF;
     @FXML
     private TextField ageTF;
     @FXML
     private TextField phoneTF;
+    @FXML
+    private TextField firstNameTF;
+    @FXML
+    private RadioButton maleRadio;
+    @FXML
+    private RadioButton femaleRadio;
+
     @FXML
 
     private void saveNewUser(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -50,12 +53,12 @@ public class PatientRegisterController {
         String username = usernameTF.getText();
         String password = passwordTF.getText();
         String email = emailTF.getText();
-        String firstName = fNameTF.getText();
+        String firstName = firstNameTF.getText();
         String lastName = lastNameTF.getText();
         int age = Integer.parseInt(ageTF.getText());
         String phone = phoneTF.getText();
-        String gender = ((RadioButton)genderGroup.getSelectedToggle()).getText();
-        User user = new User(username, password, firstName, lastName, age, email, phone, gender,"Patient");
+        String gender = ((RadioButton) genderGroup.getSelectedToggle()).getText();
+        User user = new User(age, username, password, firstName, lastName, age, email, phone, gender, "patient");
         int recordCounter = user.save();
         if (recordCounter > 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -67,7 +70,8 @@ public class PatientRegisterController {
 
     @FXML
     private void cancelUserCreation(ActionEvent event) {
-       ViewManager.closePatientRegisterView();
+        ViewManager.openPatientLoginView();
+        ViewManager.closePatientRegisterView();
     }
 
 }

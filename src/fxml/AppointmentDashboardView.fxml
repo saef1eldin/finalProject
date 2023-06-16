@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentDashboardViewController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="956.0" style="-fx-background-color: #d1d1cd;">
+      <AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="946.0" style="-fx-background-color: #d1d1cd;">
          <children>
-            <AnchorPane prefHeight="646.0" prefWidth="207.0" styleClass="sidePar" stylesheets="@../css/admin.css">
+            <AnchorPane prefHeight="635.0" prefWidth="207.0" styleClass="sidePar" stylesheets="@../css/admin.css">
                <children>
-                  <Label alignment="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="42.0" prefWidth="162.0" text="Patient Dashboard" textFill="#b8d9f8">
+                  <Label alignment="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="42.0" prefWidth="162.0" text="Admin Dashboard" textFill="#b8d9f8">
                      <effect>
                         <Glow level="0.33" />
                      </effect>
@@ -26,7 +26,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Button alignment="BASELINE_LEFT" layoutY="184.0" mnemonicParsing="false" onAction="#showAppointmentsPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItemActive" stylesheets="@../css/admin.css" text="Appointments">
+                  <Button alignment="BASELINE_LEFT" layoutY="234.0" mnemonicParsing="false" onAction="#showAppointmentsPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItemActive" stylesheets="@../css/admin.css" text="Appointments">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -37,7 +37,18 @@
                         <Insets left="20.0" />
                      </padding>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutY="247.0" mnemonicParsing="false" onAction="#showBookedAppointmentPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="Booked-Appointment">
+                  <Button alignment="BASELINE_LEFT" layoutY="184.0" mnemonicParsing="false" onAction="#showMainPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="main">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutY="284.0" mnemonicParsing="false" onAction="#showBookedAppointmentPage" prefHeight="49.0" prefWidth="207.0" styleClass="sideParItem" stylesheets="@../css/admin.css" text="booked-Appointment">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -63,7 +74,15 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="tableView" layoutX="58.0" layoutY="123.0" prefHeight="234.0" prefWidth="482.0">
+                  <Button layoutX="299.0" layoutY="23.0" mnemonicParsing="false" onAction="#CreateAppointment" prefHeight="42.0" prefWidth="156.0" styleClass="showAllBtn" stylesheets="@../css/admin.css" text="Create Appointment">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tableView" layoutX="36.0" layoutY="123.0" prefHeight="234.0" prefWidth="482.0">
                      <columns>
                         <TableColumn fx:id="id" prefWidth="44.0" text="Id" />
                         <TableColumn fx:id="date" prefWidth="135.199951171875" text="date" />
@@ -72,7 +91,15 @@
                         <TableColumn fx:id="status" prefWidth="99.19998779296873" text="status" />
                      </columns>
                   </TableView>
-                  <Button layoutX="14.0" layoutY="410.0" mnemonicParsing="false" onAction="#BookedAppointment" prefHeight="42.0" prefWidth="118.0" styleClass="updateBtn" stylesheets="@../css/admin.css" text="Booked">
+                  <Button layoutX="22.0" layoutY="389.0" mnemonicParsing="false" onAction="#updateSelectedAppointment" prefHeight="42.0" prefWidth="118.0" styleClass="updateBtn" stylesheets="@../css/admin.css" text="Update">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="180.0" layoutY="389.0" mnemonicParsing="false" onAction="#deleteSelectedAppointments" prefHeight="42.0" prefWidth="118.0" styleClass="deleteBtn" stylesheets="@../css/admin.css" text="Delete">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -83,7 +110,7 @@
                   <HBox layoutX="211.0" layoutY="105.0" prefHeight="36.0" prefWidth="255.0" />
                </children>
             </AnchorPane>
-            <Label layoutX="233.0" layoutY="13.0" prefHeight="42.0" prefWidth="194.0" text="Patient Dashboard" textFill="#838383">
+            <Label layoutX="233.0" layoutY="13.0" prefHeight="42.0" prefWidth="194.0" text="Admin Dashboard" textFill="#838383">
                <effect>
                   <Glow level="0.45" />
                </effect>
